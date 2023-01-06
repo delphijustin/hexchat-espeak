@@ -14,6 +14,7 @@ DeleteMinutes = 15 #number of minutes after text file is created to delete it
 TalkID = round(random.random()*100000,0)
 
 def TalkTimer(fn):
+	return 0
 	time.sleep(60*DeleteMinutes)
 	os.remove(fn)
 def MSGTalk(word, word_eol, userdata):
@@ -30,7 +31,7 @@ def MSGTalk(word, word_eol, userdata):
 	myfile.close()
 	timerThread=threading.Thread(target=TalkTimer, args=(fn,))
 	timerThread.start()
-	subprocess.Popen(["espeak","-f",fn])
+	subprocess.Popen(["/usr/sbin/hcspeak.sh",fn])
 	return hexchat.EAT_NONE
 def ATalk(word, word_eol, userdata):
 	# STRIP word
@@ -46,7 +47,7 @@ def ATalk(word, word_eol, userdata):
 	myfile.close()
 	timerThread=threading.Thread(target=TalkTimer, args=(fn,))
 	timerThread.start()
-	subprocess.Popen(["espeak","-f",fn])
+	subprocess.Popen(["/usr/sbin/hcspeak.sh",fn])
 	return hexchat.EAT_NONE
 def JoinTalk(word, word_eol, userdata):
 	# STRIP word
@@ -62,7 +63,7 @@ def JoinTalk(word, word_eol, userdata):
 	myfile.close()
 	timerThread=threading.Thread(target=TalkTimer, args=(fn,))
 	timerThread.start()
-	subprocess.Popen(["espeak","-f",fn])
+	subprocess.Popen(["/usr/sbin/hcspeak.sh",fn])
 	return hexchat.EAT_NONE
 def NickTalk(word, word_eol, userdata):
 	# STRIP word
@@ -78,7 +79,7 @@ def NickTalk(word, word_eol, userdata):
 	myfile.close()
 	timerThread=threading.Thread(target=TalkTimer, args=(fn,))
 	timerThread.start()
-	subprocess.Popen(["espeak","-f",fn])
+	subprocess.Popen(["/usr/sbin/hcspeak.sh",fn])
 	return hexchat.EAT_NONE
 def PartTalk(word, word_eol, userdata):
 	# STRIP word
@@ -94,7 +95,7 @@ def PartTalk(word, word_eol, userdata):
 	myfile.close()
 	timerThread=threading.Thread(target=TalkTimer, args=(fn,))
 	timerThread.start()
-	subprocess.Popen(["espeak","-f",fn])
+	subprocess.Popen(["/usr/sbin/hcspeak.sh",fn])
 	return hexchat.EAT_NONE
 def PMSGTalk(word, word_eol, userdata):
 	# STRIP word
@@ -110,7 +111,7 @@ def PMSGTalk(word, word_eol, userdata):
 	myfile.close()
 	timerThread=threading.Thread(target=TalkTimer, args=(fn,))
 	timerThread.start()
-	subprocess.Popen(["espeak","-f",fn])
+	subprocess.Popen(["/usr/sbin/hcspeak.sh",fn])
 	return hexchat.EAT_NONE
 def QTalk(word, word_eol, userdata):
 	# STRIP word
@@ -126,7 +127,7 @@ def QTalk(word, word_eol, userdata):
 	myfile.close()
 	timerThread=threading.Thread(target=TalkTimer, args=(fn,))
 	timerThread.start()
-	subprocess.Popen(["espeak","-f",fn])
+	subprocess.Popen(["/usr/sbin/hcspeak.sh",fn])
 	return hexchat.EAT_NONE
 # Finally, the hook that will link the function above to the action of receiving a channel message
 hexchat.hook_print("Channel Message", MSGTalk)
@@ -136,6 +137,5 @@ hexchat.hook_print("Change Nick", NickTalk)
 hexchat.hook_print("Part with Reason", PartTalk)
 hexchat.hook_print("Private Action to Dialog", ATalk)
 hexchat.hook_print("Channel Action", ATalk)
-hexchat.hook_print("Channel Msg Hilight", MSGTalk)
 hexchat.hook_print("Quit", QTalk)
 # You can find the words "Channel Message" and many other events in HexChat menu "Settings > Text Events..."
