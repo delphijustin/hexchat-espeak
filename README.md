@@ -7,3 +7,8 @@ Use this command: <b>hexchat -p</b>
 </p>
 You will also need to install espeak<br>
 Type: <b>sudo apt install espeak</b>
+<p>
+Place hcspeak.sh in /usr/sbin and make it executable
+</p>
+Dont use with a bouncer otherwise the computer will be talking non stop and hexchat will start slow.
+</p>
