@@ -136,5 +136,6 @@ hexchat.hook_print("Change Nick", NickTalk)
 hexchat.hook_print("Part with Reason", PartTalk)
 hexchat.hook_print("Private Action to Dialog", ATalk)
 hexchat.hook_print("Channel Action", ATalk)
+hexchat.hook_print("Channel Msg Hilight", MSGTalk)
 hexchat.hook_print("Quit", QTalk)
 # You can find the words "Channel Message" and many other events in HexChat menu "Settings > Text Events..."
