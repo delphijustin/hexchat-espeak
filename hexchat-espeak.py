@@ -131,6 +131,7 @@ def QTalk(word, word_eol, userdata):
 	return hexchat.EAT_NONE
 # Finally, the hook that will link the function above to the action of receiving a channel message
 hexchat.hook_print("Channel Message", MSGTalk)
+hexchat.hook_print("Channel Msg Hilight", MSGTalk)
 hexchat.hook_print("Private Message to Dialog", PMSGTalk)
 hexchat.hook_print("Join", JoinTalk)
 hexchat.hook_print("Change Nick", NickTalk)
